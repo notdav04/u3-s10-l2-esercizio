@@ -8,10 +8,8 @@ const AddComment = (props) => {
     elementId: props.idLibro
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setObj((prevObj) => ({ ...prevObj, [name]: value }));
+  const handleChange = (name, value) => {
+    setObj({ ...obj, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -51,7 +49,7 @@ const AddComment = (props) => {
           <textarea
             name="comment"
             value={obj.comment}
-            onChange={handleChange}
+            onChange={(e) => handleChange("comment", e.target.value)}
             rows="3"
             required
           />
@@ -62,7 +60,7 @@ const AddComment = (props) => {
             type="number"
             name="rate"
             value={obj.rate}
-            onChange={handleChange}
+            onChange={(e) => handleChange("rate", e.target.value)}
             min="1"
             max="5"
             required
@@ -74,7 +72,7 @@ const AddComment = (props) => {
             type="email"
             name="author"
             value={obj.author}
-            onChange={handleChange}
+            onChange={(e) => handleChange("author", e.target.value)}
             required
           />
         </div>
