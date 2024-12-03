@@ -12,6 +12,7 @@ const CommentList = (props) => {
             comment={element.comment}
             rate={element.rate}
             author={element.author}
+            _id={element._id}
           />
         ))}
       </ul>
